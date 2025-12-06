@@ -1,0 +1,28 @@
+name: FTP Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3`
+
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.trylolingerie.com}}
+          username: ${{ secrets.kapp2@trylolingerie.com }}
+          password: ${{ secrets.zulfi@123456}}
+          protocol: ftps
+          port: 21
+          local-dir: .
+          server-dir: /public_html/
+
+
+
